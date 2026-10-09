@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>filmax · Almanaque administrativo de un negocio pequeño</title>
+<meta name="description" content="Almanaque de doce revisiones mensuales para las cuentas de un negocio pequeño: qué observar cada mes, qué suele aparecer y qué dejar anotado. Portal informativo.">
+<link rel="canonical" href="https://filmax.blog/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_BO">
+<meta property="og:site_name" content="filmax">
+<meta property="og:title" content="filmax · Almanaque administrativo de un negocio pequeño">
+<meta property="og:description" content="Doce revisiones internas, una por mes, ordenadas por la lógica de un negocio pequeño. Contenido informativo.">
+<meta property="og:url" content="https://filmax.blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Lora:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<script>(function () { "use strict"; document.documentElement.classList.add("js"); }());</script>
+<style>
+:root {
+  --fondo: #F2F1EC;
+  --hoja: #FFFFFF;
+  --tinta: #16181A;
+  --tinta-media: #5A6066;
+  --pauta: #DEDBD3;
+  --estacion: #35604A;
+  --aviso: #A35A1E;
+  --letra-mes: "Anton", "Arial Narrow", sans-serif;
+  --letra-texto: "Lora", Georgia, serif;
+  --ancho: 1100px;
+  --columna: 72ch;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--letra-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+a { color: var(--estacion); text-underline-offset: .18em; transition: color 150ms ease; }
+a:hover { color: var(--tinta); }
+:focus-visible { outline: 3px solid var(--estacion); outline-offset: 3px; }
+h1, h2, h3, h4 { line-height: 1.2; }
+.sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.saltar {
+  position: absolute; left: 1rem; top: -4rem; z-index: 30;
+  background: var(--hoja); color: var(--tinta); padding: .6rem 1rem;
+  border: 2px solid var(--estacion); transition: top 150ms ease;
+}
+.saltar:focus { top: 1rem; }
+
+.cabecera {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--fondo); border-bottom: 1px solid var(--pauta);
+}
+.cabecera-interior {
+  max-width: var(--ancho); margin: 0 auto; padding: .7rem 1rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  position: relative;
+}
+.marca { font-weight: 700; font-size: 1.3rem; color: var(--tinta); text-decoration: none; }
+.menu-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem 1.25rem; }
+.menu-lista a {
+  color: var(--tinta); text-decoration: none; padding: .2rem 0;
+  border-bottom: 2px solid var(--fondo); transition: color 150ms ease, border-color 150ms ease;
+}
+.menu-lista a:hover { color: var(--estacion); border-bottom-color: var(--estacion); }
+.menu-boton {
+  display: none; font: inherit; color: var(--estacion); background: var(--hoja);
+  border: 2px solid var(--estacion); padding: .3rem .9rem; cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.menu-boton:hover { background: var(--estacion); color: var(--hoja); }
+
+main { display: block; }
+[id] { scroll-margin-top: 4.5rem; }
+
+.apertura {
+  max-width: var(--ancho); margin: 0 auto; padding: clamp(2rem, 5vw, 4rem) 1rem 2.5rem;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.5rem; align-items: center;
+}
+.apertura h1 { font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem); margin: 0 0 1rem; }
+.lema { font-size: 1.2rem; margin: 0 0 1.5rem; max-width: var(--columna); }
+.advertencia {
+  background: var(--hoja); border-left: 4px solid var(--estacion);
+  padding: .8rem 1rem; margin: 0 0 1rem; max-width: var(--columna);
+}
+.motivo { margin: 0; }
+.anillo { display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto; }
+.anillo-sector { fill: var(--estacion); }
+.anillo-sector--aviso { fill: var(--aviso); }
+.anillo-inicial { fill: var(--tinta); font-family: var(--letra-texto); font-weight: 700; font-size: 15px; text-anchor: middle; dominant-baseline: central; }
+.anillo-centro { fill: var(--tinta); font-family: var(--letra-texto); font-weight: 700; font-size: 22px; text-anchor: middle; }
+.anillo-nota { fill: var(--tinta-media); font-family: var(--letra-texto); font-size: 13px; text-anchor: middle; }
+.motivo figcaption { color: var(--tinta-media); font-size: .95rem; margin-top: .8rem; }
+
+.banda { background: var(--fondo); border-top: 1px solid var(--pauta); border-bottom: 1px solid var(--pauta); }
+.banda-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.banda-lista li { border-left: 1px solid var(--pauta); }
+.banda-lista li:first-child { border-left: 0; }
+.banda-lista a {
+  display: flex; align-items: center; justify-content: center; height: 40px;
+  color: var(--tinta-media); text-decoration: none; font-weight: 400;
+  border-bottom: 3px solid var(--fondo);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.banda-lista a:hover { color: var(--tinta); }
+.banda-lista a.actual { color: var(--estacion); font-weight: 700; border-bottom-color: var(--estacion); }
+
+.hoja {
+  background: var(--hoja); max-width: var(--ancho); margin: 2.5rem auto;
+  padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem);
+}
+.hoja-cabeza { border-bottom: 1px solid var(--pauta); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+.hoja-mes {
+  font-family: var(--letra-mes); font-weight: 400;
+  font-size: clamp(4.5rem, 2.6rem + 6vw, 7rem); line-height: .95;
+  margin: 0 0 1rem; letter-spacing: .01em; color: var(--tinta);
+}
+.foco { color: var(--estacion); font-style: italic; font-size: 1.25rem; margin: 0; max-width: var(--columna); }
+.hoja-cuerpo { max-width: var(--columna); }
+.campo { font-size: 1rem; font-weight: 700; color: var(--tinta-media); margin: 1.75rem 0 .5rem; }
+.hoja-cuerpo p { margin: 0; }
+.revision { margin: 0; padding-left: 1.25rem; }
+.revision li { margin: .2rem 0; }
+.revision li::marker { color: var(--tinta-media); }
+.olvido-rotulo { font-weight: 700; }
+.olvido-rotulo::before {
+  content: ""; display: inline-block; width: .7em; height: .7em;
+  background: var(--aviso); margin-right: .45em; vertical-align: -.02em;
+}
+.cifra { font-family: var(--letra-mes); font-size: 1.08em; letter-spacing: .03em; }
+
+.seccion { max-width: var(--ancho); margin: 0 auto; padding: 3rem 1rem; }
+.seccion > h2 { font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); margin: 0 0 1.25rem; }
+.texto { max-width: var(--columna); }
+.texto h3 { font-size: 1.25rem; margin: 2rem 0 .6rem; }
+.texto h4 { font-size: 1.05rem; margin: 1.5rem 0 .4rem; }
+.fecha { color: var(--tinta-media); font-size: .95rem; }
+
+.tabla-contenedor { overflow-x: auto; background: var(--hoja); }
+.resumen-tabla { width: 100%; border-collapse: collapse; min-width: 640px; }
+.resumen-tabla caption { text-align: left; color: var(--tinta-media); padding: .8rem 1rem; caption-side: top; }
+.resumen-tabla th, .resumen-tabla td {
+  text-align: left; vertical-align: top; padding: .7rem 1rem; border-bottom: 1px solid var(--pauta);
+}
+.resumen-tabla thead th { color: var(--tinta-media); border-bottom-width: 2px; }
+.tabla-mes { display: block; font-weight: 700; }
+.tabla-foco { display: block; font-weight: 400; }
+
+.ficha { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: .4rem 1.25rem; background: var(--hoja); padding: 1.25rem; margin: 1rem 0 0; }
+.ficha dt { color: var(--tinta-media); }
+.ficha dd { margin: 0; }
+
+.contacto-datos { padding-left: 1.25rem; }
+.formulario { background: var(--hoja); padding: 1.25rem; margin-top: 1.5rem; max-width: var(--columna); }
+.formulario label { display: block; font-weight: 700; margin: 1rem 0 .3rem; }
+.formulario input, .formulario textarea {
+  width: 100%; font: inherit; color: var(--tinta); background: var(--hoja);
+  border: 1px solid var(--tinta-media); padding: .55rem .7rem;
+}
+.formulario input[aria-invalid="true"], .formulario textarea[aria-invalid="true"] { border-width: 3px; border-color: var(--tinta); }
+.campo-error { display: block; font-size: .95rem; min-height: 1.4em; color: var(--tinta); }
+.estado-envio { font-weight: 700; min-height: 1.6em; }
+.boton {
+  font: inherit; font-weight: 700; color: var(--hoja); background: var(--estacion);
+  border: 2px solid var(--estacion); padding: .55rem 1.3rem; cursor: pointer; margin-top: 1rem;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+.boton:hover { background: var(--tinta); border-color: var(--tinta); }
+.boton-secundario { color: var(--estacion); background: var(--hoja); }
+.boton-secundario:hover { color: var(--hoja); }
+
+.documento { border-top: 1px solid var(--pauta); background: var(--hoja); }
+.documento:last-of-type { border-bottom: 1px solid var(--pauta); }
+.documento > summary { cursor: pointer; padding: 1rem 1.25rem; }
+.documento > summary h3 { display: inline; font-size: 1.2rem; margin: 0; }
+.documento-cuerpo { padding: 0 1.25rem 1.5rem; max-width: calc(var(--columna) + 2.5rem); }
+.documento[open] .documento-cuerpo { animation: desplegar 200ms ease; }
+@keyframes desplegar { from { opacity: 0; } to { opacity: 1; } }
+
+.aviso-cookies {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  background: var(--hoja); border-top: 2px solid var(--estacion);
+  padding: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(100%); transition: opacity 200ms ease, transform 200ms ease;
+}
+.aviso-cookies[hidden] { display: none; }
+.aviso-cookies.visible { opacity: 1; transform: translateY(0); }
+.aviso-cookies p { margin: 0; max-width: 60ch; }
+.aviso-botones { display: flex; gap: .75rem; }
+.aviso-botones .boton { margin-top: 0; min-width: 7.5rem; }
+
+.pie { background: var(--estacion); color: var(--hoja); }
+.pie-interior { max-width: var(--ancho); margin: 0 auto; padding: 2.5rem 1rem; display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 2rem; }
+.pie ul { list-style: none; margin: 0; padding: 0; }
+.pie li { margin: .25rem 0; }
+.pie a { color: var(--hoja); }
+.pie a:hover { color: var(--fondo); }
+.pie :focus-visible { outline-color: var(--hoja); }
+
+@media (max-width: 900px) {
+  .apertura { grid-template-columns: minmax(0, 1fr); }
+  .pie-interior { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .js .menu-boton { display: inline-block; }
+  .js .menu-lista {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--fondo); border-bottom: 1px solid var(--pauta);
+    flex-direction: column; padding: .5rem 1rem 1rem;
+  }
+  .js .menu-lista.abierta { display: flex; }
+  .ficha { grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+  .ficha dd { margin-bottom: .6rem; }
+  .hoja { margin: 1.5rem auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+@media print {
+  .cabecera, .banda, .saltar, .aviso-cookies, .formulario, #reabrir-cookies { display: none !important; }
+  body { background: var(--hoja); font-size: 11pt; }
+  .apertura { display: block; }
+  .anillo { max-width: 260px; }
+  .hoja { break-inside: avoid; page-break-inside: avoid; break-before: page; margin: 0; padding: 0; }
+  .hoja-mes { font-size: 4.5rem; }
+  .olvido-rotulo::before, .anillo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .documento > summary { list-style: none; }
+  .documento::details-content { content-visibility: visible; display: block; }
+  .tabla-contenedor { overflow: visible; }
+  .resumen-tabla { min-width: 0; }
+  .pie { background: var(--hoja); color: var(--tinta); border-top: 1px solid var(--pauta); }
+  .pie a { color: var(--tinta); }
+}
+
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://filmax.blog/#sitio",
+   "url": "https://filmax.blog/",
+   "name": "filmax",
+   "inLanguage": "es",
+   "description": "Almanaque administrativo con doce revisiones mensuales para las cuentas de un negocio pequeño.",
+   "publisher": {
+    "@id": "https://filmax.blog/#organizacion"
+   }
+  },
+  {
+   "@type": "Person",
+   "@id": "https://filmax.blog/#titular",
+   "name": "JOSE ALBERTO MOLANO SIERRA",
+   "email": "soporte@filmax.blog",
+   "telephone": "+591 77590994",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Campero 48",
+    "addressLocality": "La Paz",
+    "addressCountry": "BO"
+   }
+  },
+  {
+   "@type": "EducationalOrganization",
+   "@id": "https://filmax.blog/#organizacion",
+   "name": "filmax",
+   "url": "https://filmax.blog/",
+   "email": "soporte@filmax.blog",
+   "telephone": "+591 77590994",
+   "founder": {
+    "@id": "https://filmax.blog/#titular"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Campero 48",
+    "addressLocality": "La Paz",
+    "addressCountry": "BO"
+   }
+  },
+  {
+   "@type": "Article",
+   "@id": "https://filmax.blog/#cierre",
+   "headline": "Por qué repartir la revisión a lo largo del año",
+   "inLanguage": "es",
+   "datePublished": "2026-10-08",
+   "dateModified": "2026-10-08",
+   "author": {
+    "@id": "https://filmax.blog/#titular"
+   },
+   "publisher": {
+    "@id": "https://filmax.blog/#organizacion"
+   },
+   "mainEntityOfPage": "https://filmax.blog/#cierre"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera">
+  <div class="cabecera-interior">
+    <a class="marca" href="#inicio">filmax</a>
+    <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal">Menú</button>
+    <nav aria-label="Principal">
+      <ul class="menu-lista" id="menu-principal">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#el-ano">El año</a></li>
+        <li><a href="#como-usarlo">Cómo usarlo</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#politicas">Políticas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="contenido">
+<section class="apertura" id="inicio" aria-labelledby="titulo-principal">
+  <div class="apertura-texto">
+    <h1 id="titulo-principal">Almanaque administrativo de un negocio pequeño</h1>
+    <p class="lema">Doce revisiones internas, una por mes, que ordenan a lo largo del año lo que conviene mirar en las cuentas de un negocio pequeño y que vuelven a servir cada año.</p>
+    <p class="advertencia"><strong>Portal solo informativo.</strong> filmax.blog publica contenido educativo general; no presta asesoría individual de ningún tipo.</p>
+    <p class="advertencia"><strong>Calendario propio, no oficial.</strong> El orden de los meses responde a la lógica interna de un negocio y no a fechas oficiales de ningún país. Este almanaque es un orden de revisión interna. Las obligaciones legales, contables y tributarias tienen su propio calendario, que varía según la normativa vigente en Bolivia y debe consultarse con un contador público o profesional habilitado.</p>
+  </div>
+  <figure class="motivo">
+    <svg class="anillo" viewBox="0 0 400 400" role="img" aria-labelledby="anillo-titulo anillo-desc"><title id="anillo-titulo">El año como anillo de doce revisiones</title><desc id="anillo-desc">Anillo dividido en doce sectores iguales, uno por mes, rotulados con la inicial de cada mes de enero a diciembre. El grosor de cada sector es proporcional a la carga relativa de revisión de ese mes: enero y diciembre son los más gruesos y agosto el más delgado. El sector de agosto está destacado y rotulado como el mes que más se descuida.</desc><path class="anillo-sector" d="M202.3 32.0A168 168 0 0 1 282.0 53.3L238.1 131.9A78 78 0 0 0 201.1 122.0Z"/><text class="anillo-inicial" x="247.1" y="24.2">E</text><path class="anillo-sector" d="M267.6 86.6A132 132 0 0 1 313.4 132.4L267.0 160.1A78 78 0 0 0 239.9 133.0Z"/><text class="anillo-inicial" x="303.2" y="96.8">F</text><path class="anillo-sector" d="M323.1 131.2A141 141 0 0 1 341.0 198.0L278.0 198.9A78 78 0 0 0 268.1 161.9Z"/><text class="anillo-inicial" x="349.7" y="159.9">M</text><path class="anillo-sector" d="M332.0 201.8A132 132 0 0 1 315.2 264.4L268.1 238.1A78 78 0 0 0 278.0 201.1Z"/><text class="anillo-inicial" x="341.0" y="237.8">A</text><path class="anillo-sector" d="M321.1 272.2A141 141 0 0 1 272.2 321.1L239.9 267.0A78 78 0 0 0 267.0 239.9Z"/><text class="anillo-inicial" x="309.6" y="309.6">M</text><path class="anillo-sector" d="M277.6 338.8A159 159 0 0 1 202.2 359.0L201.1 278.0A78 78 0 0 0 238.1 268.1Z"/><text class="anillo-inicial" x="244.8" y="367.1">J</text><path class="anillo-sector" d="M198.3 323.0A123 123 0 0 1 140.0 307.4L161.9 268.1A78 78 0 0 0 198.9 278.0Z"/><text class="anillo-inicial" x="164.5" y="332.3">J</text><path class="anillo-sector anillo-sector--aviso" d="M141.6 297.9A114 114 0 0 1 102.1 258.4L133.0 239.9A78 78 0 0 0 160.1 267.0Z"/><text class="anillo-inicial" x="109.5" y="290.5">A</text><path class="anillo-sector" d="M69.1 273.2A150 150 0 0 1 50.0 202.1L122.0 201.1A78 78 0 0 0 131.9 238.1Z"/><text class="anillo-inicial" x="41.6" y="242.4">S</text><path class="anillo-sector" d="M59.0 198.0A141 141 0 0 1 76.9 131.2L131.9 161.9A78 78 0 0 0 122.0 198.9Z"/><text class="anillo-inicial" x="50.3" y="159.9">O</text><path class="anillo-sector" d="M86.6 132.4A132 132 0 0 1 132.4 86.6L160.1 133.0A78 78 0 0 0 133.0 160.1Z"/><text class="anillo-inicial" x="96.8" y="96.8">N</text><path class="anillo-sector" d="M118.0 53.3A168 168 0 0 1 197.7 32.0L198.9 122.0A78 78 0 0 0 161.9 131.9Z"/><text class="anillo-inicial" x="152.9" y="24.2">D</text><text class="anillo-centro" x="200" y="194">El año</text><text class="anillo-nota" x="200" y="218">A: el mes que</text><text class="anillo-nota" x="200" y="234">más se descuida</text></svg>
+    <figcaption>Cada sector es un mes y su grosor indica la carga relativa de revisión. El sector rotulado con la A y señalado en el centro corresponde a agosto, la revisión del tiempo propio: el mes que más se descuida.</figcaption>
+  </figure>
+</section>
+<nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero" class="actual" aria-current="location"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<div id="el-ano">
+
+<section class="hoja" id="enero" aria-labelledby="t-enero">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-enero">Enero</h2>
+    <p class="foco">Inventario de partida y estado de las cuentas tras el cierre del año.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Enero es el único momento en que el negocio puede mirarse sin el ruido de la actividad anterior. El año que terminó ya dejó de producir movimientos nuevos y el que empieza aún no ha acumulado los suyos, de modo que lo que se cuenta ahora funciona como punto de partida. Si las existencias, los saldos y los compromisos se anotan en este momento, cada revisión posterior tiene contra qué compararse. La elección responde a esa lógica de arranque y no a ninguna fecha oficial: el cierre contable formal sigue su propio calendario, que conviene consultar con un contador público o profesional habilitado.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Contar las existencias físicas y compararlas con lo registrado.</li><li>Anotar el saldo real de cada cuenta y de la caja.</li><li>Listar lo que deben los clientes y lo que se debe a proveedores.</li><li>Identificar compromisos firmados que siguen vigentes este año.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Observar qué registros del año anterior quedaron incompletos.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo más común es una diferencia entre lo que el registro dice que hay y lo que realmente está en el estante. Rara vez se debe a un solo error; suele ser la suma de salidas no anotadas, mermas sin registrar y conteos hechos con prisa. También aparecen saldos que nadie sabe explicar porque mezclan movimientos de varios meses. Estas diferencias no indican necesariamente un problema grave, sino el punto donde el registro dejó de reflejar la realidad. Saber dónde empieza la brecha permite corregir el método de anotación y no solo la cifra.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene dejar escrito cómo se hizo el conteo: quién participó, en qué orden se recorrieron los espacios y cuánto tiempo tomó. También qué diferencias aparecieron y su causa probable. El año próximo, ese registro permitirá repetir el procedimiento sin improvisar y comprobar si las mismas diferencias vuelven a presentarse.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero" class="actual" aria-current="location"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="febrero" aria-labelledby="t-febrero">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-febrero">Febrero</h2>
+    <p class="foco">Revisión de los costos fijos y de lo que se renueva automáticamente.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Pasado el primer mes, ya existe al menos un ciclo completo de cargos del nuevo año, y eso permite ver qué gastos se repiten sin que nadie los haya decidido de nuevo. Muchos servicios, suscripciones y contratos se renuevan solos al comenzar el período, y su importe puede haber cambiado sin un aviso visible. Febrero suele tener además una actividad más moderada que otros meses, lo que deja tiempo para leer comprobantes con calma. La lógica es sencilla: revisar lo recurrente cuando ya se ha cobrado una vez, pero antes de que se acumulen varios meses de pagos por algo que quizá ya no tiene uso.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Listar cada cargo que se repite cada mes o cada año.</li><li>Comparar el importe actual de cada cargo con el anterior.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar servicios contratados que nadie del negocio usa.</li><li>Observar qué contratos se renuevan sin aviso previo.</li><li>Anotar quién autorizó originalmente cada gasto fijo.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">El hallazgo más frecuente es un conjunto de cargos pequeños que, por separado, no llaman la atención y que juntos pesan más de lo esperado. En un ejemplo hipotético en base <span class="cifra">100</span>, si los costos fijos totales son <span class="cifra">100</span>, es habitual que entre <span class="cifra">10</span> y <span class="cifra">15</span> correspondan a servicios que se usan poco o nada. También aparecen aumentos aplicados al renovar que nadie comparó con la tarifa anterior. Estos hallazgos no significan que haya que cancelar todo, sino que cada gasto fijo debería tener una razón vigente y un responsable capaz de explicarla.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Vale la pena dejar una lista con cada gasto fijo, su peso relativo, su momento de renovación y la persona que lo justifica. Si se marca cuáles se decidió conservar y por qué, la revisión del año próximo se limitará a confirmar cambios en lugar de reconstruir toda la lista desde cero.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo" class="actual" aria-current="location"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="marzo" aria-labelledby="t-marzo">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-marzo">Marzo</h2>
+    <p class="foco">Cobros por recibir arrastrados del año anterior.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Para marzo ya pasó tiempo suficiente desde el cierre como para distinguir entre los cobros que simplemente se demoraron y los que corren riesgo de no concretarse. En enero muchos saldos de clientes todavía parecen normales porque el año acaba de terminar; dos meses después, lo que sigue sin cobrarse merece otra mirada. Revisar en este punto evita dos errores opuestos: actuar con demasiada prisa ante atrasos habituales o dejar que un saldo antiguo se vuelva invisible. El tratamiento contable o tributario de los importes que finalmente no se cobren tiene sus propias reglas, que deben consultarse con un contador público o profesional habilitado.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Listar cada saldo de cliente con su antigüedad aproximada.</li><li>Separar los atrasos habituales de los casos sin respuesta.</li><li>Comprobar que cada saldo tenga un documento que lo respalde.</li><li>Observar si los atrasos se concentran en pocos clientes.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar entregas realizadas que nunca llegaron a facturarse.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Es frecuente descubrir que una parte de lo que figura por cobrar ya fue pagada y no se registró, o que hay entregas realizadas sin comprobante emitido. También aparece la concentración: pocos clientes reúnen la mayor parte del saldo atrasado. En un caso hipotético en base <span class="cifra">100</span>, si el total por cobrar es <span class="cifra">100</span>, no es raro que <span class="cifra">60</span> dependa de tres o cuatro nombres. Esto no implica mala fe de esos clientes, pero sí una dependencia que conviene conocer antes de aceptar nuevas condiciones de entrega o de ampliar la relación.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene anotar, para cada saldo antiguo, qué gestión se hizo, cuándo y con qué resultado, además de qué clientes concentraban el atraso. Con esa nota, la revisión del año próximo empezará comparando nombres y antigüedades, y será fácil ver si el patrón se repite o si las medidas tomadas cambiaron algo.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril" class="actual" aria-current="location"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="abril" aria-labelledby="t-abril">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-abril">Abril</h2>
+    <p class="foco">Relación con proveedores y condiciones de compra.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Con el primer trimestre completo, el negocio dispone de suficientes compras recientes como para ver cómo se comportan sus proveedores en la práctica y no solo en lo acordado al inicio. Ya hubo pedidos, entregas, devoluciones y algún cambio de precio, de modo que la relación puede evaluarse con hechos. Abril encaja porque las condiciones pactadas al empezar el año todavía son recientes y fáciles de recordar, y porque aún queda margen para ajustar la forma de comprar antes de que llegue la temporada de mayor actividad. La revisión mira la relación completa: plazos, calidad, precio y comunicación.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Comparar los plazos de entrega acordados con los reales.</li><li>Anotar los cambios de precio aplicados en el trimestre.</li><li>Observar cuántos pedidos llegaron incompletos o con errores.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar insumos que dependen de un único proveedor.</li><li>Releer las condiciones de pago pactadas con cada proveedor.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo habitual es encontrar diferencias entre lo que se acordó y lo que realmente ocurre: entregas que llegan días después de lo prometido, cantidades que no coinciden con el pedido o precios que cambian sin comunicación previa. También aparece la dependencia de un solo proveedor para algún insumo importante, algo que solo se percibe cuando falla. Estos hallazgos no obligan a cambiar de proveedor; sirven para conversar con datos concretos en la mano y para saber qué artículos necesitan una alternativa identificada de antemano, antes de que la falta se note en el mostrador.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Es útil dejar una ficha breve por proveedor con su plazo real promedio, los incidentes del trimestre y las condiciones vigentes. Si además se anota qué alternativa existe para cada insumo crítico, la revisión del año siguiente partirá de una comparación directa y no de recuerdos dispersos o de impresiones.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo" class="actual" aria-current="location"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="mayo" aria-labelledby="t-mayo">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-mayo">Mayo</h2>
+    <p class="foco">Revisión del precio frente a los costos acumulados del primer cuatrimestre.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Cuatro meses de actividad permiten ver si los costos se movieron lo suficiente como para afectar el margen de lo que se vende. Al empezar el año, el precio suele fijarse con los costos del período anterior; para mayo ya hubo ajustes de proveedores, cambios en los servicios y variaciones en el consumo de insumos. Esperar más significa vender medio año con un margen que quizá ya no es el que se cree. Revisar antes sería prematuro, porque uno o dos meses no bastan para separar una variación pasajera de una tendencia. El cuatrimestre ofrece ese equilibrio entre información suficiente y tiempo para reaccionar.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Comparar el costo actual de cada producto con el de enero.</li><li>Observar qué insumos subieron más que el promedio.</li><li>Calcular el margen relativo de los productos más vendidos.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar productos cuyo precio no cambió en mucho tiempo.</li><li>Anotar qué costos indirectos se incorporaron este año.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Con frecuencia se descubre que el margen se redujo sin que nadie lo decidiera. En un ejemplo hipotético en base <span class="cifra">100</span>: si un producto se vende a <span class="cifra">100</span> y en enero costaba <span class="cifra">70</span>, el margen era <span class="cifra">30</span>; si los insumos subieron y ahora cuesta <span class="cifra">78</span>, el margen bajó a <span class="cifra">22</span>, casi un tercio menos, aunque el precio siga igual. Este tipo de hallazgo no indica que haya que subir precios de inmediato, sino que la decisión debe tomarse con los números a la vista y no por intuición.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene registrar el costo de cada producto principal tal como estaba en mayo, junto con el precio vigente y el margen resultante en base <span class="cifra">100</span>. Al repetir la revisión el año próximo, bastará comparar las dos columnas para ver qué productos perdieron margen, cuáles lo mantuvieron y cuáles lo recuperaron.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio" class="actual" aria-current="location"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="junio" aria-labelledby="t-junio">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-junio">Junio</h2>
+    <p class="foco">Medio año: comparación del primer semestre contra el anterior.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">La mitad del año es el primer punto en que dos períodos de igual duración pueden ponerse uno al lado del otro. Comparar meses sueltos suele llevar a conclusiones engañosas, porque cada mes tiene su propio ritmo; seis meses suavizan esas variaciones y dejan ver la dirección general. Junio permite comparar el semestre que termina con el último semestre del año anterior, y también con el mismo semestre de un año atrás si existen registros. Esta comparación es interna y orientativa: los estados financieros formales y sus plazos responden a otras normas, que deben consultarse con un contador público o profesional habilitado.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Comparar las ventas del semestre con las del anterior.</li><li>Observar cómo evolucionaron los costos fijos en el período.</li><li>Contrastar los cobros recibidos con las ventas realizadas.</li><li>Identificar meses que se alejaron mucho del promedio.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Releer las notas de enero a mayo y ver cuáles se atendieron.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo más frecuente es que la comparación desmienta alguna impresión. Un semestre que se sintió intenso puede mostrar ventas parecidas a las del anterior mientras los costos crecieron. En un caso hipotético en base <span class="cifra">100</span>, si las ventas del semestre anterior se fijan en <span class="cifra">100</span>, el semestre actual puede marcar <span class="cifra">104</span> mientras los costos pasan de <span class="cifra">100</span> a <span class="cifra">109</span>. También aparecen meses atípicos que explican buena parte de la diferencia. El valor del hallazgo está en reemplazar sensaciones por proporciones comparables entre sí.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Es recomendable dejar una tabla de seis filas con las ventas, los costos y los cobros de cada mes, expresados en base <span class="cifra">100</span> respecto del semestre anterior. Con ese formato fijo, la comparación del año próximo se reduce a agregar una columna nueva y observar en qué punto cambió la tendencia.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><!-- Espacio para unidad publicitaria: insertar el código del anuncio dentro de esta banda, entre la hoja de junio y la de julio. Nunca dentro de una hoja de mes, de la tabla de resumen ni de los documentos legales. --><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio" class="actual" aria-current="location"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="julio" aria-labelledby="t-julio">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-julio">Julio</h2>
+    <p class="foco">Existencias detenidas y espacio ocupado.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Después de la comparación de junio, el negocio ya sabe qué se vendió en el semestre, y eso permite identificar con precisión lo que no se movió. Un artículo que no tuvo salida en seis meses ocupa espacio, inmoviliza dinero y a menudo pierde valor sin que se note. Julio es el momento adecuado porque la información de ventas está fresca y porque todavía queda medio año para decidir qué hacer con esas existencias antes de que se cumpla otro ciclo completo. La revisión no busca vaciar estantes, sino saber qué ocupa el espacio y por qué sigue ahí.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Listar los artículos sin ninguna salida en el semestre.</li><li>Observar cuánto espacio ocupan las existencias detenidas.</li><li>Comprobar el estado físico de lo almacenado por más tiempo.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar compras repetidas de productos que no rotan.</li><li>Anotar el motivo probable de cada existencia detenida.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo habitual es encontrar productos comprados por una oportunidad de precio que nunca encontraron su demanda, artículos dañados que siguen contándose como disponibles y repuestos para equipos que el negocio ya no usa. También aparece una zona del local ocupada casi por completo por mercadería que no rota. Estos hallazgos significan que una parte del espacio y del dinero invertido no está trabajando para el negocio, algo que no se ve en las ventas pero sí en la falta de lugar y de recursos disponibles.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene anotar qué artículos se clasificaron como detenidos, qué decisión se tomó con cada uno y qué espacio quedó libre. Si se registra también el motivo de la compra original, el año próximo será posible detectar si el mismo tipo de decisión vuelve a producir existencias sin movimiento.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto" class="actual" aria-current="location"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="agosto" aria-labelledby="t-agosto">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-agosto">Agosto</h2>
+    <p class="foco">Revisión del tiempo propio y de lo que se delega.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">En un negocio pequeño el tiempo del dueño es un recurso tan limitado como el dinero, pero rara vez se revisa con la misma atención. Agosto ofrece una posición útil: las revisiones de existencias, precios y proveedores ya se hicieron, y antes de preparar la temporada de mayor actividad conviene saber cuántas horas se van en tareas que otra persona podría hacer. Si este análisis se deja para el período intenso, ya no habrá margen para reorganizar nada. Es la revisión que más se omite, precisamente porque no aparece en ningún registro contable ni deja un saldo que alguien reclame.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Registrar durante una semana en qué se usa cada hora.</li><li>Separar las tareas que solo puede hacer el dueño.</li><li>Observar cuántas interrupciones fragmentan la jornada habitual.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar tareas delegadas que vuelven siempre al dueño.</li><li>Anotar qué decisiones esperan siempre a una misma persona.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">El hallazgo más común es que una parte grande del tiempo del dueño se dedica a tareas operativas repetitivas, mientras las decisiones que solo él puede tomar quedan para el final del día. En un registro hipotético en base <span class="cifra">100</span> horas, no es raro que <span class="cifra">40</span> se vayan en tareas delegables. También aparecen tareas que se delegaron pero regresan porque no quedaron instrucciones claras. Esto no habla de falta de esfuerzo, sino de una organización que depende demasiado de una sola persona y de su presencia constante.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Vale la pena guardar el registro semanal de horas y la lista de tareas que se decidió delegar, con el nombre de quien las asumió. El año próximo, repetir el registro durante una semana permitirá comprobar si esas tareas siguen fuera del día del dueño o si volvieron a él.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre" class="actual" aria-current="location"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="septiembre" aria-labelledby="t-septiembre">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-septiembre">Septiembre</h2>
+    <p class="foco">Preparación de la temporada de mayor actividad.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Para muchos negocios, la temporada de mayor actividad llega en el último tramo del año, aunque cada uno conoce su propio ritmo. Septiembre deja la distancia justa para prepararse: lo bastante cerca como para estimar con datos recientes y lo bastante lejos como para corregir antes de que la demanda apriete. Las revisiones previas aportan insumos directos: las existencias detenidas indican qué no conviene volver a comprar, la relación con proveedores dice con cuánta anticipación pedir y el análisis del tiempo muestra qué tareas reasignar. Un negocio con otra estacionalidad debería desplazar esta revisión a su propio momento previo.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Releer la medición de la última temporada alta registrada.</li><li>Anotar los plazos reales de reposición de los productos clave.</li><li>Observar qué capacidad de atención faltó la temporada anterior.</li><li>Comprobar el estado de los equipos que se usarán intensamente.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar pagos previstos que coinciden con la temporada.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Es frecuente descubrir que la temporada anterior se preparó con impresiones y no con registros: se compró de más en algunos productos y de menos en otros. También aparecen equipos que funcionaron al límite y no recibieron atención después, o plazos de reposición que se alargan justo cuando la demanda sube. Estos hallazgos muestran que la preparación necesita fechas internas propias, fijadas hacia atrás desde el inicio de la temporada y no improvisadas cuando las ventas ya empezaron a crecer.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene dejar un plan breve con lo que se pidió, cuándo se pidió y qué capacidad de atención se previó. Al cerrar la temporada, esa misma hoja se completará con lo que realmente ocurrió, y la comparación entre ambas columnas será el punto de partida de la preparación del año siguiente.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre" class="actual" aria-current="location"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="octubre" aria-labelledby="t-octubre">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-octubre">Octubre</h2>
+    <p class="foco">Compromisos del último trimestre y calendario de pagos.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Al comenzar el último trimestre, los compromisos que quedan por cumplir antes del cierre son conocidos y finitos. Octubre permite reunirlos en un solo calendario interno: pagos a proveedores, renovaciones, sueldos, entregas acordadas y cualquier salida importante prevista. Hacerlo ahora tiene sentido porque la temporada de mayor actividad está empezando y concentra entradas y salidas en pocas semanas. Este calendario interno ordena los flujos del negocio, pero no reemplaza las obligaciones legales y tributarias, que tienen su propio calendario según la normativa vigente y deben consultarse con un contador público o profesional habilitado.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Listar todos los pagos previstos hasta el cierre del año.</li><li>Comparar las salidas previstas con los cobros esperados.</li><li>Observar las semanas donde coinciden varios pagos importantes.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Identificar compromisos verbales que no figuran en ningún registro.</li><li>Anotar el margen de holgura antes de cada pago relevante.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo habitual es encontrar semanas con varios pagos grandes coincidentes, mientras otras quedan casi vacías. En un ejemplo hipotético en base <span class="cifra">100</span>, si las salidas del trimestre suman <span class="cifra">100</span>, no es raro que <span class="cifra">45</span> se concentren en solo tres semanas. También aparecen compromisos asumidos de palabra que nadie anotó y que surgen de improviso. Estos hallazgos no indican un problema de fondo, sino la necesidad de ordenar las salidas con anticipación para que la caja no quede tensionada en el momento de mayor actividad.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Es útil conservar el calendario del trimestre con las fechas previstas y, junto a cada una, la fecha real en que se pagó. Las diferencias entre ambas columnas mostrarán qué compromisos tienden a adelantarse o a atrasarse, y el calendario del año próximo podrá construirse con esa experiencia.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre" class="actual" aria-current="location"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="noviembre" aria-labelledby="t-noviembre">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-noviembre">Noviembre</h2>
+    <p class="foco">Medición de la temporada alta mientras ocurre.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">La mayoría de las revisiones se hacen con calma y a posteriori, pero la temporada alta tiene una particularidad: lo que no se registra mientras ocurre ya no puede reconstruirse después. Las horas de mayor afluencia, los productos que se agotan, las ventas perdidas por falta de existencias y los tiempos de espera son datos que se evaporan si nadie los anota en el momento. Noviembre se dedica a medir y no a corregir, porque en plena actividad no hay espacio para grandes cambios. Lo que se observe ahora será la materia prima de la preparación del año siguiente.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Anotar las horas y los días de mayor afluencia.</li><li>Registrar cada producto agotado y el momento en que se agotó.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Observar cuántas ventas se pierden por falta de existencias.</li><li>Comparar las ventas diarias con las de la semana anterior.</li><li>Identificar los cuellos de botella en la atención o la entrega.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Con frecuencia se constata que los productos que se agotan no son los que se esperaba, y que las ventas perdidas superan lo que sugiere el registro de ventas, porque una venta que no ocurre no deja rastro. En un registro hipotético en base <span class="cifra">100</span>, por cada <span class="cifra">100</span> ventas concretadas pueden anotarse entre <span class="cifra">8</span> y <span class="cifra">10</span> consultas sin respuesta por falta de producto. También aparecen cuellos de botella concretos: una caja, una persona o un horario. Estos datos valen más que cualquier impresión posterior.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Conviene guardar las hojas de medición tal como se llenaron, sin depurarlas, junto con una breve nota sobre lo que se haría distinto. Esa evidencia directa servirá en septiembre del año próximo para preparar la temporada con hechos y no con lo que se recuerde de ella.</p>
+  </div>
+</section><nav class="banda" aria-label="Los doce meses"><ul class="banda-lista"><li><a href="#enero"><span aria-hidden="true">E</span><span class="sr">Enero</span></a></li><li><a href="#febrero"><span aria-hidden="true">F</span><span class="sr">Febrero</span></a></li><li><a href="#marzo"><span aria-hidden="true">M</span><span class="sr">Marzo</span></a></li><li><a href="#abril"><span aria-hidden="true">A</span><span class="sr">Abril</span></a></li><li><a href="#mayo"><span aria-hidden="true">M</span><span class="sr">Mayo</span></a></li><li><a href="#junio"><span aria-hidden="true">J</span><span class="sr">Junio</span></a></li><li><a href="#julio"><span aria-hidden="true">J</span><span class="sr">Julio</span></a></li><li><a href="#agosto"><span aria-hidden="true">A</span><span class="sr">Agosto</span></a></li><li><a href="#septiembre"><span aria-hidden="true">S</span><span class="sr">Septiembre</span></a></li><li><a href="#octubre"><span aria-hidden="true">O</span><span class="sr">Octubre</span></a></li><li><a href="#noviembre"><span aria-hidden="true">N</span><span class="sr">Noviembre</span></a></li><li><a href="#diciembre" class="actual" aria-current="location"><span aria-hidden="true">D</span><span class="sr">Diciembre</span></a></li></ul></nav>
+<section class="hoja" id="diciembre" aria-labelledby="t-diciembre">
+  <header class="hoja-cabeza">
+    <h2 class="hoja-mes" id="t-diciembre">Diciembre</h2>
+    <p class="foco">Cierre ordenado y notas para el año siguiente.</p>
+  </header>
+  <div class="hoja-cuerpo">
+    <h3 class="campo">Por qué este mes</h3>
+    <p class="campo-porque">Diciembre reúne todo lo anterior. No es el mes de repetir cada revisión, sino de comprobar que las notas de cada mes existen, están completas y pueden encontrarse. Es también el momento de dejar los registros en un estado que permita el conteo de enero sin sorpresas: documentos archivados, saldos identificados y existencias en orden. La lógica es la de cerrar un ciclo para abrir el siguiente con información limpia. El cierre contable y fiscal formal sigue sus propias reglas y plazos, que deben consultarse con un contador público o profesional habilitado.</p>
+    <h3 class="campo">Qué revisar</h3>
+    <ul class="revision"><li>Comprobar que existan las once notas de los meses anteriores.</li><li>Archivar los comprobantes del año en un orden recuperable.</li><li class="olvido"><span class="olvido-rotulo">Suele pasarse por alto:</span> Observar qué revisiones se omitieron y por qué motivo.</li><li>Anotar los cambios del negocio que afectarán al año próximo.</li><li>Preparar el espacio y los registros para el conteo de enero.</li></ul>
+    <h3 class="campo">Qué suele aparecer</h3>
+    <p class="campo-aparece">Lo más frecuente es descubrir que algunas revisiones no se hicieron o quedaron a medias, y que las notas existentes están dispersas en distintos lugares. También aparecen comprobantes sin archivar, acumulados durante la temporada alta. Estos hallazgos no deberían leerse como un fracaso: un almanaque se completa por capas, y cada año suele cumplirse una proporción mayor de las revisiones. Lo importante es saber cuáles faltaron y por qué, para decidir si conviene mantenerlas en su mes, moverlas a otro o simplificarlas.</p>
+    <h3 class="campo">Nota para el año próximo</h3>
+    <p class="campo-nota">Esta es la nota que encadena todo el almanaque: un resumen de una página con lo aprendido en cada mes, los cambios que se aplicarán y las revisiones que se moverán de lugar. Al abrir enero, esa página será lo primero que se lea antes de empezar el conteo de existencias.</p>
+  </div>
+</section>
+</div>
+<section class="seccion" id="como-usarlo" aria-labelledby="t-como">
+  <h2 id="t-como">Cómo usarlo</h2>
+  <div class="texto">
+    <p>Este almanaque propone un orden, no una obligación. Cada hoja describe una revisión interna que tiene sentido en ese punto del año por la lógica habitual de un negocio pequeño: primero se establece un punto de partida, luego se revisan los gastos que se repiten, los cobros, los proveedores y los precios; a mitad de año se compara, y en la segunda mitad se prepara, se mide y se cierra. Nada de esto responde a fechas oficiales.</p>
+    <p class="advertencia"><strong>Advertencia.</strong> Este almanaque es un orden de revisión interna. Las obligaciones legales, contables y tributarias tienen su propio calendario, que varía según la normativa vigente en Bolivia y debe consultarse con un contador público o profesional habilitado.</p>
+    <p>La estacionalidad de cada negocio es distinta. Un comercio cuya temporada fuerte llega a mitad de año debería desplazar la preparación, la medición y el cierre a los meses que correspondan a su propio ciclo, manteniendo el orden relativo entre revisiones. Lo que importa no es el nombre del mes, sino la secuencia: revisar los costos antes que los precios, medir la temporada antes de volver a prepararla y cerrar antes de volver a contar.</p>
+    <p>Todas las hojas tienen la misma estructura. «Por qué este mes» explica la razón de su ubicación; «Qué revisar» propone cinco observaciones concretas; «Qué suele aparecer» describe los hallazgos más frecuentes y lo que significan; «Nota para el año próximo» indica qué conviene dejar escrito. El pequeño cuadro de color junto a uno de los puntos, siempre acompañado del texto «Suele pasarse por alto», señala la observación que más a menudo se omite.</p>
+    <p>La nota es la pieza que convierte el almanaque en un ciclo. Al terminar la revisión de un mes, se guarda la nota junto con los datos relevantes. Un año después, la revisión del mismo mes empieza leyendo esa nota: qué se encontró, qué se decidió y qué quedó por comprobar. Así la segunda vuelta resulta más corta que la primera, y la tercera más corta que la segunda. Diciembre reúne todas las notas en una sola página que abre el año siguiente.</p>
+    <p>No es necesario aplicar las doce revisiones desde el principio. Empezar por tres o cuatro, las que el negocio sienta más urgentes, y sumar las demás con el tiempo es una forma razonable de usar este calendario sin convertirlo en una carga.</p>
+  </div>
+</section>
+
+<section class="seccion" id="resumen" aria-labelledby="t-resumen">
+  <h2 id="t-resumen">Resumen del año</h2>
+  <div class="tabla-contenedor">
+    <table class="resumen-tabla">
+      <caption>Las doce revisiones del almanaque, una fila por mes de enero a diciembre.</caption>
+      <thead>
+        <tr><th scope="col">Foco del mes</th><th scope="col">Qué revisar</th><th scope="col">Qué queda anotado</th></tr>
+      </thead>
+      <tbody><tr><th scope="row"><span class="tabla-mes">Enero</span> <span class="tabla-foco">Inventario de partida y estado de las cuentas tras el cierre del año.</span></th><td>Existencias, saldos</td><td>Método del conteo y diferencias halladas</td></tr><tr><th scope="row"><span class="tabla-mes">Febrero</span> <span class="tabla-foco">Revisión de los costos fijos y de lo que se renueva automáticamente.</span></th><td>Cargos recurrentes</td><td>Lista de gastos fijos con responsable</td></tr><tr><th scope="row"><span class="tabla-mes">Marzo</span> <span class="tabla-foco">Cobros por recibir arrastrados del año anterior.</span></th><td>Saldos antiguos</td><td>Gestiones hechas y clientes concentrados</td></tr><tr><th scope="row"><span class="tabla-mes">Abril</span> <span class="tabla-foco">Relación con proveedores y condiciones de compra.</span></th><td>Plazos reales</td><td>Ficha por proveedor y alternativas</td></tr><tr><th scope="row"><span class="tabla-mes">Mayo</span> <span class="tabla-foco">Revisión del precio frente a los costos acumulados del primer cuatrimestre.</span></th><td>Margen relativo</td><td>Costo, precio y margen por producto</td></tr><tr><th scope="row"><span class="tabla-mes">Junio</span> <span class="tabla-foco">Medio año: comparación del primer semestre contra el anterior.</span></th><td>Tendencia semestral</td><td>Tabla semestral comparable</td></tr><tr><th scope="row"><span class="tabla-mes">Julio</span> <span class="tabla-foco">Existencias detenidas y espacio ocupado.</span></th><td>Artículos inmóviles</td><td>Artículos detenidos y decisión tomada</td></tr><tr><th scope="row"><span class="tabla-mes">Agosto</span> <span class="tabla-foco">Revisión del tiempo propio y de lo que se delega.</span></th><td>Horas propias</td><td>Registro de horas y tareas delegadas</td></tr><tr><th scope="row"><span class="tabla-mes">Septiembre</span> <span class="tabla-foco">Preparación de la temporada de mayor actividad.</span></th><td>Reposición, capacidad</td><td>Plan previsto frente a lo ocurrido</td></tr><tr><th scope="row"><span class="tabla-mes">Octubre</span> <span class="tabla-foco">Compromisos del último trimestre y calendario de pagos.</span></th><td>Salidas previstas</td><td>Fechas previstas frente a fechas reales</td></tr><tr><th scope="row"><span class="tabla-mes">Noviembre</span> <span class="tabla-foco">Medición de la temporada alta mientras ocurre.</span></th><td>Afluencia, agotados</td><td>Hojas de medición sin depurar</td></tr><tr><th scope="row"><span class="tabla-mes">Diciembre</span> <span class="tabla-foco">Cierre ordenado y notas para el año siguiente.</span></th><td>Notas, archivo</td><td>Resumen de una página del año</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
+<article class="seccion" id="cierre" aria-labelledby="t-cierre">
+  <h2 id="t-cierre">Por qué repartir la revisión a lo largo del año</h2>
+  <p class="fecha">Publicado: <time datetime="2026-10-08">8 de octubre de 2026</time> · Última revisión: <time datetime="2026-10-08">8 de octubre de 2026</time></p>
+  <div class="texto cierre-cuerpo">
+    <p>La forma más común de revisar las cuentas de un negocio pequeño es hacerlo una sola vez, de golpe, cuando algo obliga: el cierre de un período, una necesidad de información o una sorpresa desagradable. Esa revisión concentrada tiene una ventaja evidente, porque reúne todo en un mismo momento, pero también tiene costos que no siempre se ven. Este almanaque parte de una idea distinta: que la mayoría de las revisiones funcionan mejor cuando se reparten a lo largo del año y cada una se hace en el punto donde la información está más fresca y la decisión todavía tiene margen.</p>
+    <h3>Los límites de la revisión concentrada</h3>
+    <p>Cuando todo se revisa a la vez, el volumen se vuelve el principal obstáculo. Doce meses de comprobantes, saldos, existencias y compromisos exigen días de trabajo que un negocio pequeño rara vez puede dedicar sin descuidar su operación. El resultado habitual es una revisión superficial: se mira lo más visible y se deja lo demás para otro momento que nunca llega.</p>
+    <p>Además, una revisión hecha al final llega tarde para muchas decisiones. Si el margen de un producto se redujo en los primeros meses, descubrirlo al cierre significa haber vendido todo el año con un margen menor al que se creía. Si un proveedor incumplió sus plazos de forma reiterada, enterarse cuando ya pasó la temporada de mayor actividad no permite corregir nada. La información existe, pero se consulta cuando ya no sirve para actuar.</p>
+    <p>Hay también un problema de memoria. Muchas de las preguntas que una revisión intenta responder dependen del contexto: por qué se compró cierto artículo, qué ocurrió con un cliente determinado o por qué un gasto subió. Ese contexto se pierde con rapidez. Al final del año, las explicaciones se reconstruyen con suposiciones, y las suposiciones tienden a confirmar lo que ya se pensaba.</p>
+    <h3>Lo que aporta una revisión repartida</h3>
+    <p>Repartir las revisiones permite que cada una sea breve. Una hoja por mes, con cinco puntos concretos, puede resolverse en pocas horas sin interrumpir la actividad. La carga total no desaparece, pero se distribuye de un modo compatible con el funcionamiento diario del negocio.</p>
+    <p>El orden también importa. Las revisiones de este almanaque están encadenadas: el inventario de enero ofrece la base contra la que se comparan las existencias detenidas de julio; la revisión de costos fijos de febrero y la de proveedores de abril alimentan la revisión de precios de mayo; la medición de noviembre se convierte en la preparación del septiembre siguiente. Cada revisión aprovecha lo que dejó la anterior y prepara la próxima.</p>
+    <p>Por último, la repetición anual convierte la revisión en un hábito con memoria propia. Gracias a las notas que deja cada mes, la segunda vez que se revisa un tema se parte de un registro concreto y no de cero. Con el tiempo, las revisiones se acortan, los hallazgos se vuelven más precisos y resulta posible distinguir los problemas que se repiten de los que fueron excepcionales.</p>
+    <h3>Las limitaciones de este orden propuesto</h3>
+    <p>Este calendario no es universal. Responde a la lógica de un negocio pequeño con una temporada de mayor actividad hacia el final del año, y no todos los negocios funcionan así. Un comercio cuya demanda se concentra a mitad de año, un servicio con contratos que empiezan en otro momento o una actividad sin estacionalidad marcada deberán desplazar las revisiones para que coincidan con su propio ciclo.</p>
+    <p>Tampoco sustituye el trabajo de un profesional. Las revisiones aquí propuestas son observaciones internas que ayudan a ordenar información; no constituyen una contabilidad formal ni determinan obligaciones de ningún tipo. Las obligaciones legales, contables y tributarias tienen su propio calendario, que varía según la normativa vigente en Bolivia y debe consultarse con un contador público o profesional habilitado.</p>
+    <p>El almanaque supone, además, una disciplina que no siempre es realista. Habrá meses en que la revisión no pueda hacerse, y eso no invalida el resto. Es preferible completar bien unas pocas revisiones que cumplir todas de manera apresurada. Los ejemplos numéricos incluidos son hipotéticos y están expresados en base <span class="cifra">100</span> para mostrar proporciones, no para describir ningún negocio real ni sugerir resultados esperables.</p>
+    <p>Finalmente, ninguna revisión, por bien hecha que esté, garantiza un resultado. Lo que ofrece este orden es visibilidad: saber con más claridad qué ocurre en el negocio y en qué momento. Las decisiones que se tomen con esa información siguen dependiendo del criterio de quien lo dirige y del consejo profesional que corresponda en cada caso.</p>
+  </div>
+</article>
+
+<section class="seccion" id="nosotros" aria-labelledby="t-nosotros">
+  <h2 id="t-nosotros">Nosotros</h2>
+  <div class="texto">
+    <h3>Quién edita</h3>
+    <p>filmax es un portal editado por JOSE ALBERTO MOLANO SIERRA desde La Paz, Bolivia. Publica contenido educativo general sobre la organización administrativa de negocios pequeños, redactado para personas sin formación contable.</p>
+    <h3>Cómo se construyó el calendario</h3>
+    <p>El orden de las doce revisiones se definió a partir de la secuencia natural de la información en un negocio pequeño: primero un punto de partida, después lo que se repite, luego lo que se arrastra, y así sucesivamente hasta el cierre. Cada mes se ubicó donde la revisión anterior le aporta datos y donde la siguiente puede aprovechar su resultado. No se tomó como referencia ningún calendario fiscal, comercial ni oficial, y los ejemplos numéricos son hipotéticos y expresados en base <span class="cifra">100</span>.</p>
+    <h3>Corrección de errores</h3>
+    <p>Si un lector detecta un error, una explicación confusa o un dato incorrecto, puede comunicarlo al correo de soporte. Cada aviso se revisa; cuando se confirma el error, el texto se corrige y se actualiza la fecha de revisión indicada en el cierre. Las correcciones de fondo se describen brevemente en esa misma sección.</p>
+    <h3>Cómo se financia</h3>
+    <p>El sitio es gratuito y se sostiene con publicidad de terceros, que se muestra en espacios separados del contenido y nunca dentro de las hojas de mes, de la tabla de resumen ni de los documentos legales. Los anunciantes no intervienen en la redacción ni en el orden del almanaque.</p>
+    <h3>Límite de la actividad</h3>
+    <p>filmax es un portal puramente informativo. No presta intermediación financiera, captación de dinero, asesoría de inversión personalizada ni concesión de créditos, ni asesoría contable, tributaria o legal individual, y no responde consultas sobre casos particulares.</p>
+    <h3>Ficha del titular</h3>
+    <dl class="ficha"><dt>Nombre del sitio</dt><dd>filmax</dd><dt>Titular</dt><dd>JOSE ALBERTO MOLANO SIERRA</dd><dt>Dominio</dt><dd>filmax.blog</dd><dt>Correo de soporte</dt><dd>soporte@filmax.blog</dd><dt>Dirección comercial</dt><dd>Campero 48, La Paz, Bolivia</dd><dt>Teléfono</dt><dd>+591 77590994</dd><dt>País y ley de datos aplicable</dt><dd>Bolivia · CPE arts. 21 y 130, Ley N.º 164 y D.S. N.º 1793</dd></dl>
+  </div>
+</section>
+
+<section class="seccion" id="contacto" aria-labelledby="t-contacto">
+  <h2 id="t-contacto">Contacto</h2>
+  <div class="texto">
+    <ul class="contacto-datos">
+      <li>Sitio: filmax (filmax.blog)</li>
+      <li>Titular: JOSE ALBERTO MOLANO SIERRA</li>
+      <li>Correo: <a href="mailto:soporte@filmax.blog">soporte@filmax.blog</a></li>
+      <li>Dirección comercial: Campero 48, La Paz, Bolivia</li>
+      <li>Teléfono: <a href="tel:+59177590994">+591 77590994</a></li>
+    </ul>
+    <p>Este canal sirve para avisar errores, hacer comentarios sobre el contenido o ejercer derechos sobre datos personales. No se responden consultas individuales sobre la situación de un negocio concreto.</p>
+    <p class="advertencia"><strong>Aviso contra el fraude.</strong> filmax nunca le pedirá contraseñas, números de tarjeta, claves de acceso, códigos de verificación ni pagos de ningún tipo, por correo, teléfono o mensajería. Si recibe una solicitud así en nombre de este sitio, no responda y escriba a soporte@filmax.blog.</p>
+    <form class="formulario" id="formulario-contacto" action="mailto:soporte@filmax.blog" method="post" enctype="text/plain" autocomplete="off">
+      <label for="campo-nombre">Nombre</label>
+      <input id="campo-nombre" name="nombre" type="text" autocomplete="off" required maxlength="80" aria-describedby="error-nombre">
+      <span class="campo-error" id="error-nombre" aria-live="polite"></span>
+      <label for="campo-correo">Correo electrónico</label>
+      <input id="campo-correo" name="correo" type="email" autocomplete="off" required maxlength="120" aria-describedby="error-correo">
+      <span class="campo-error" id="error-correo" aria-live="polite"></span>
+      <label for="campo-mensaje">Mensaje</label>
+      <textarea id="campo-mensaje" name="mensaje" rows="6" autocomplete="off" required maxlength="2000" aria-describedby="error-mensaje"></textarea>
+      <span class="campo-error" id="error-mensaje" aria-live="polite"></span>
+      <button class="boton" type="submit">Preparar correo</button>
+      <p class="estado-envio" id="estado-envio" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<section class="seccion" id="descargo" aria-labelledby="t-descargo">
+  <h2 id="t-descargo">Descargo de responsabilidad</h2>
+  <div class="texto">
+    <p>filmax.blog, operado por JOSE ALBERTO MOLANO SIERRA, es un portal puramente informativo. El calendario propuesto es un orden de revisión interna y no un calendario de obligaciones legales, contables ni tributarias de ningún país.</p>
+    <p class="advertencia">Este almanaque es un orden de revisión interna. Las obligaciones legales, contables y tributarias tienen su propio calendario, que varía según la normativa vigente en Bolivia y debe consultarse con un contador público o profesional habilitado.</p>
+    <p>El sitio no presta intermediación financiera, captación de dinero, asesoría de inversión personalizada ni concesión de créditos, ni tampoco asesoría contable, tributaria o legal individual. Los ejemplos numéricos son hipotéticos, están expresados en base <span class="cifra">100</span> y no describen ningún negocio real. Cualquier decisión tomada a partir de este contenido es responsabilidad de quien la adopta. El texto completo figura en los documentos legales.</p>
+  </div>
+</section>
+
+<section class="seccion" id="politicas" aria-labelledby="t-politicas">
+  <h2 id="t-politicas">Documentos legales</h2>
+  <p class="texto">Los cuatro documentos comparten la misma fecha de última actualización: 8 de octubre de 2026. Pulse cada título para desplegarlo.</p>
+
+  <details class="documento" id="politica-privacidad">
+    <summary><h3>Política de Privacidad</h3></summary>
+    <div class="documento-cuerpo texto">
+      <p class="fecha">Última actualización: 8 de octubre de 2026</p>
+      <h4>1. Marco normativo</h4>
+      <p>A la fecha de esta política, Bolivia no cuenta con una ley general de protección de datos personales. El tratamiento de datos en este sitio se rige por la Constitución Política del Estado, en particular su artículo 21, que reconoce el derecho a la privacidad, intimidad, honra, honor, propia imagen y dignidad, y sus artículos 130 y 131, que regulan la Acción de Protección de Privacidad; por la Ley N.º 164, de 8 de agosto de 2011, Ley General de Telecomunicaciones, Tecnologías de Información y Comunicación; por el Decreto Supremo N.º 1793, de 13 de noviembre de 2013, Reglamento para el Desarrollo de Tecnologías de Información y Comunicación, que establece principios para el tratamiento de datos personales en entornos digitales; y, en lo que corresponda, por la Ley N.º 453, de 4 de diciembre de 2013, Ley General de los Derechos de las Usuarias y los Usuarios y de las Consumidoras y los Consumidores. Si se promulgara una ley específica de protección de datos, esta política se adecuará a ella.</p>
+      <h4>2. Identidad y domicilio del responsable</h4>
+      <p>El responsable del tratamiento es JOSE ALBERTO MOLANO SIERRA, titular del sitio filmax.blog, con domicilio en Campero 48, La Paz, Bolivia, correo soporte@filmax.blog y teléfono +591 77590994.</p>
+      <h4>3. Datos que se recogen</h4>
+      <p>El sitio no tiene registro de usuarios ni almacena en servidores propios los datos del formulario de contacto. Cuando una persona usa el formulario, su propio programa de correo prepara un mensaje con el nombre, la dirección de correo y el texto que haya escrito, y esos datos solo llegan al titular si la persona decide enviarlo. Además, el proveedor de alojamiento registra datos técnicos de navegación, como la dirección IP, el tipo de navegador y las páginas solicitadas. Si el visitante acepta las cookies, los servicios de medición y de publicidad de terceros pueden recoger identificadores de dispositivo y datos de navegación, según se explica en la Política de Cookies.</p>
+      <h4>4. Finalidad y base del tratamiento</h4>
+      <p>Los datos de contacto se usan exclusivamente para responder el mensaje recibido, atender avisos de errores y gestionar solicitudes sobre datos personales. Los datos técnicos se usan para mantener el sitio en funcionamiento y protegerlo frente a usos abusivos. La base del tratamiento es el consentimiento libre e informado de la persona, que lo otorga al enviar su mensaje o al aceptar las cookies, y el interés legítimo en la seguridad del sitio en el caso de los registros técnicos. Los datos no se usan para enviar publicidad propia ni se venden a terceros.</p>
+      <h4>5. Plazo de conservación</h4>
+      <p>Los mensajes recibidos se conservan durante un máximo de doce meses desde la última comunicación y luego se eliminan, salvo que deban conservarse para atender una reclamación. Los registros técnicos del alojamiento se conservan según los plazos del proveedor, que no suelen superar los noventa días. La elección sobre cookies se guarda en el navegador del visitante hasta que este la borre.</p>
+      <h4>6. Terceros que intervienen</h4>
+      <p>Intervienen en el tratamiento el proveedor de alojamiento del sitio, el proveedor del servicio de correo electrónico del titular y, cuando el visitante lo acepta, Google como proveedor de publicidad y de medición. Cada uno actúa conforme a sus propias políticas de privacidad. No se comunican datos a otras personas salvo requerimiento de autoridad competente.</p>
+      <h4>7. Transferencias fuera del país</h4>
+      <p>Los servidores del alojamiento, del correo electrónico y de los servicios de publicidad pueden encontrarse fuera de Bolivia, por lo que el uso del sitio puede implicar una transferencia internacional de datos. Al enviar un mensaje o aceptar las cookies, la persona consiente esa transferencia, que se limita a lo necesario para las finalidades descritas.</p>
+      <h4>8. Derechos de acceso, rectificación, cancelación y oposición</h4>
+      <p>Toda persona puede solicitar el acceso a sus datos, su rectificación, su cancelación o oponerse a su tratamiento. Para ello debe escribir a soporte@filmax.blog indicando su nombre, el derecho que desea ejercer y una dirección de correo para recibir la respuesta. La solicitud se responderá en un plazo máximo de diez días hábiles desde su recepción. Si la respuesta no fuera satisfactoria, la persona conserva la posibilidad de interponer la Acción de Protección de Privacidad prevista en el artículo 130 de la Constitución Política del Estado.</p>
+      <h4>9. Menores de edad</h4>
+      <p>Este sitio no se dirige a menores de edad ni recoge conscientemente sus datos. Si el titular advierte que ha recibido datos de una persona menor de edad, los eliminará sin conservar copia.</p>
+      <h4>10. Medidas de seguridad</h4>
+      <p>El sitio se sirve mediante conexión cifrada, no almacena datos de formularios en servidores propios y limita el acceso al correo de soporte al titular. Ningún sistema es completamente invulnerable, pero se aplican medidas razonables para evitar el acceso no autorizado, la pérdida o la alteración de los datos.</p>
+      <h4>11. Cambios en esta política</h4>
+      <p>Cualquier cambio se publicará en esta misma sección con una nueva fecha de última actualización. Si el cambio afecta de forma relevante a la finalidad del tratamiento, se indicará además de manera visible en la apertura del sitio durante un período razonable.</p>
+    </div>
+  </details>
+
+  <details class="documento" id="terminos">
+    <summary><h3>Términos y Condiciones</h3></summary>
+    <div class="documento-cuerpo texto">
+      <p class="fecha">Última actualización: 8 de octubre de 2026</p>
+      <h4>1. Identificación del titular</h4>
+      <p>El sitio filmax.blog es operado por JOSE ALBERTO MOLANO SIERRA, con domicilio en Campero 48, La Paz, Bolivia, correo soporte@filmax.blog y teléfono +591 77590994.</p>
+      <h4>2. Objeto del sitio</h4>
+      <p>filmax publica un almanaque administrativo de carácter educativo: un orden propuesto de revisiones internas para las cuentas de un negocio pequeño. No es un calendario de obligaciones legales, contables ni tributarias y no presta servicios profesionales de ningún tipo.</p>
+      <h4>3. Gratuidad</h4>
+      <p>El acceso y el uso del sitio son gratuitos y no requieren registro. El sitio no vende productos ni servicios.</p>
+      <h4>4. Usos permitidos</h4>
+      <p>Se permite leer, imprimir y guardar el contenido para uso personal o interno de un negocio, así como citar fragmentos breves indicando la fuente y enlazando al sitio.</p>
+      <h4>5. Usos prohibidos</h4>
+      <p>Queda prohibido reproducir el contenido completo o sustancial en otros sitios o publicaciones sin autorización escrita; presentarlo como propio; usarlo para ofrecer servicios en nombre de filmax; extraer el contenido de forma automatizada; intentar acceder a partes no públicas del sitio o alterar su funcionamiento; y suplantar la identidad del titular.</p>
+      <h4>6. Propiedad intelectual</h4>
+      <p>Los textos, el diseño, el motivo gráfico y la estructura del almanaque pertenecen a su titular y están protegidos por la Ley N.º 1322 de Derecho de Autor de Bolivia y por los tratados internacionales aplicables. El uso permitido no transfiere ningún derecho sobre ellos.</p>
+      <h4>7. Enlaces externos</h4>
+      <p>El sitio puede contener enlaces a páginas de terceros, como las de configuración de anuncios. El titular no controla esas páginas ni responde por su contenido, sus políticas o su disponibilidad.</p>
+      <h4>8. Publicidad</h4>
+      <p>El sitio muestra publicidad de terceros, que se distingue del contenido editorial y se ubica fuera de las hojas de mes, de la tabla de resumen y de los documentos legales. La presencia de un anuncio no supone recomendación del producto o servicio anunciado.</p>
+      <h4>9. Limitación de responsabilidad</h4>
+      <p>El contenido es general e informativo. El titular procura que sea correcto y claro, pero no garantiza que se ajuste a la situación de cada lector ni responde por las decisiones adoptadas a partir de él, ni por interrupciones técnicas del sitio. Para decisiones con efectos legales, contables o tributarios debe consultarse a un contador público o profesional habilitado.</p>
+      <h4>10. Modificaciones</h4>
+      <p>El titular puede modificar estos términos y el contenido del sitio en cualquier momento. La versión vigente es la publicada en esta sección con su fecha de última actualización.</p>
+      <h4>11. Legislación aplicable</h4>
+      <p>Estos términos se rigen por la legislación del Estado Plurinacional de Bolivia. Cualquier controversia se someterá a los tribunales competentes de la ciudad de La Paz, sin perjuicio de los derechos que la Ley N.º 453 reconoce a las personas usuarias.</p>
+    </div>
+  </details>
+
+  <details class="documento" id="politica-cookies">
+    <summary><h3>Política de Cookies</h3></summary>
+    <div class="documento-cuerpo texto">
+      <p class="fecha">Última actualización: 8 de octubre de 2026</p>
+      <h4>1. Qué son</h4>
+      <p>Las cookies y tecnologías similares, como el almacenamiento local del navegador, son pequeños archivos o registros que un sitio guarda en el dispositivo del visitante para recordar información entre visitas.</p>
+      <h4>2. Cookies técnicas</h4>
+      <p>filmax usa únicamente un registro técnico en el almacenamiento local del navegador para recordar si el visitante aceptó o rechazó las cookies. Es necesario para respetar esa elección, no identifica a la persona y no se comparte con nadie.</p>
+      <h4>3. Cookies de medición</h4>
+      <p>Si el visitante las acepta, pueden usarse cookies de medición de terceros para conocer de forma agregada cuántas personas visitan el sitio y qué secciones consultan. Esa información sirve para mejorar el contenido y no se usa para identificar a nadie.</p>
+      <h4>4. Cookies publicitarias de terceros</h4>
+      <p>Si el visitante las acepta, proveedores externos, incluido Google, pueden usar cookies para mostrar anuncios. La publicidad de Google puede usar cookies para mostrar anuncios basados en las visitas previas del usuario a este y a otros sitios web. Puede conocer cómo usa Google la información de los sitios que utilizan sus servicios en <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">policies.google.com/technologies/partner-sites</a> y desactivar la publicidad personalizada en <a href="https://adssettings.google.com" rel="noopener" target="_blank">adssettings.google.com</a>.</p>
+      <h4>5. Cómo revocar el consentimiento</h4>
+      <p>El visitante puede cambiar su elección en cualquier momento borrando las cookies y los datos del sitio desde la configuración de su navegador, en el apartado de privacidad o de datos de sitios; en la siguiente visita el aviso volverá a aparecer. También puede bloquear las cookies de terceros desde esa misma configuración, o usar el botón que figura a continuación cuando esté disponible.</p>
+      <button type="button" class="boton boton-secundario" id="reabrir-cookies" hidden>Cambiar preferencia de cookies</button>
+      <h4>6. Cambios</h4>
+      <p>Esta política puede actualizarse si cambian los servicios utilizados. La nueva versión se publicará aquí con su fecha de actualización.</p>
+    </div>
+  </details>
+
+  <details class="documento" id="descargo-responsabilidad">
+    <summary><h3>Descargo de Responsabilidad</h3></summary>
+    <div class="documento-cuerpo texto">
+      <p class="fecha">Última actualización: 8 de octubre de 2026</p>
+      <h4>1. Carácter informativo</h4>
+      <p>filmax.blog, operado por JOSE ALBERTO MOLANO SIERRA, es un portal puramente informativo y educativo. Su contenido es general y no constituye asesoramiento profesional.</p>
+      <h4>2. Naturaleza del calendario</h4>
+      <p>El almanaque es un orden de revisión interna y no un calendario de obligaciones legales, contables ni tributarias de ningún país. Las obligaciones legales, contables y tributarias tienen su propio calendario, que varía según la normativa vigente en Bolivia y debe consultarse con un contador público o profesional habilitado.</p>
+      <h4>3. Servicios que no se prestan</h4>
+      <p>El sitio no presta intermediación financiera, captación de dinero, asesoría de inversión personalizada ni concesión de créditos, ni tampoco asesoría contable, tributaria o legal individual. No responde consultas sobre casos particulares.</p>
+      <h4>4. Ejemplos y resultados</h4>
+      <p>Los ejemplos numéricos son hipotéticos y se expresan en base <span class="cifra">100</span> para mostrar proporciones. No describen ningún negocio real ni anticipan resultados. Aplicar las revisiones propuestas no garantiza ningún efecto económico.</p>
+      <h4>5. Responsabilidad del lector</h4>
+      <p>Las decisiones tomadas a partir de este contenido son responsabilidad exclusiva de quien las adopta. El titular no responde por pérdidas, daños o consecuencias derivadas del uso de la información publicada.</p>
+    </div>
+  </details>
+</section>
+
+</main>
+<footer class="pie">
+  <div class="pie-interior">
+    <ul class="pie-datos"><li>filmax</li><li>Titular: JOSE ALBERTO MOLANO SIERRA</li><li>Dominio: filmax.blog</li><li>Correo: <a href="mailto:soporte@filmax.blog">soporte@filmax.blog</a></li><li>Dirección: Campero 48, La Paz, Bolivia</li><li>Teléfono: <a href="tel:+59177590994">+591 77590994</a></li><li>País y ley de datos aplicable: Bolivia · CPE arts. 21 y 130, Ley N.º 164 y D.S. N.º 1793</li></ul>
+    <ul class="pie-legales">
+      <li><a href="#politica-privacidad">Política de Privacidad</a></li>
+      <li><a href="#terminos">Términos y Condiciones</a></li>
+      <li><a href="#politica-cookies">Política de Cookies</a></li>
+      <li><a href="#descargo-responsabilidad">Descargo de Responsabilidad</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="aviso-cookies" id="aviso-cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Este sitio usa almacenamiento técnico para recordar su elección y, si usted lo acepta, cookies de medición y de publicidad de terceros. Más detalles en la <a href="#politica-cookies">Política de Cookies</a>.</p>
+  <div class="aviso-botones">
+    <button type="button" class="boton" id="cookies-aceptar">Aceptar</button>
+    <button type="button" class="boton boton-secundario" id="cookies-rechazar">Rechazar</button>
+  </div>
+</div>
+<script>
+(function () {
+  "use strict";
+
+  var CLAVE = "filmax-cookies";
+  var reducido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function leer() {
+    try { return window.localStorage.getItem(CLAVE); } catch (e) { return null; }
+  }
+  function guardar(valor) {
+    try { window.localStorage.setItem(CLAVE, valor); } catch (e) { return false; }
+    return true;
+  }
+
+  /* Menú móvil */
+  var boton = document.querySelector(".menu-boton");
+  var menu = document.getElementById("menu-principal");
+  if (boton && menu) {
+    boton.addEventListener("click", function () {
+      var abierto = menu.classList.toggle("abierta");
+      boton.setAttribute("aria-expanded", abierto ? "true" : "false");
+    });
+    menu.addEventListener("click", function (ev) {
+      if (ev.target && ev.target.tagName === "A") {
+        menu.classList.remove("abierta");
+        boton.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* Mes en curso en la cuadrícula (según la hoja visible, nunca según la fecha) */
+  var hojas = document.querySelectorAll(".hoja");
+  var enlaces = document.querySelectorAll(".banda-lista a");
+  function marcar(id) {
+    for (var i = 0; i < enlaces.length; i++) {
+      var activo = enlaces[i].getAttribute("href") === "#" + id;
+      enlaces[i].classList.toggle("actual", activo);
+      if (activo) { enlaces[i].setAttribute("aria-current", "location"); }
+      else { enlaces[i].removeAttribute("aria-current"); }
+    }
+  }
+  if (hojas.length && enlaces.length && "IntersectionObserver" in window) {
+    var observador = new IntersectionObserver(function (entradas) {
+      for (var i = 0; i < entradas.length; i++) {
+        if (entradas[i].isIntersecting) { marcar(entradas[i].target.id); }
+      }
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    for (var h = 0; h < hojas.length; h++) { observador.observe(hojas[h]); }
+  }
+
+  /* Documentos legales: abrir el details al llegar por ancla */
+  function abrirDesdeAncla(hash) {
+    if (!hash || hash.length < 2) { return; }
+    var destino = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (destino && destino.tagName === "DETAILS") { destino.open = true; }
+  }
+  abrirDesdeAncla(window.location.hash);
+  window.addEventListener("hashchange", function () { abrirDesdeAncla(window.location.hash); });
+  var anclas = document.querySelectorAll('a[href^="#"]');
+  for (var a = 0; a < anclas.length; a++) {
+    anclas[a].addEventListener("click", function () { abrirDesdeAncla(this.getAttribute("href")); });
+  }
+
+  /* Impresión: todos los documentos legales desplegados */
+  var documentos = document.querySelectorAll("details.documento");
+  var estadoPrevio = [];
+  window.addEventListener("beforeprint", function () {
+    estadoPrevio = [];
+    for (var i = 0; i < documentos.length; i++) {
+      estadoPrevio.push(documentos[i].open);
+      documentos[i].open = true;
+    }
+  });
+  window.addEventListener("afterprint", function () {
+    for (var i = 0; i < documentos.length && i < estadoPrevio.length; i++) {
+      documentos[i].open = estadoPrevio[i];
+    }
+  });
+
+  /* Aviso de cookies */
+  var aviso = document.getElementById("aviso-cookies");
+  var aceptar = document.getElementById("cookies-aceptar");
+  var rechazar = document.getElementById("cookies-rechazar");
+  var reabrir = document.getElementById("reabrir-cookies");
+  function mostrarAviso() {
+    if (!aviso) { return; }
+    aviso.hidden = false;
+    if (reducido) { aviso.classList.add("visible"); return; }
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { aviso.classList.add("visible"); });
+    });
+  }
+  function ocultarAviso() {
+    if (!aviso) { return; }
+    aviso.classList.remove("visible");
+    window.setTimeout(function () { aviso.hidden = true; }, reducido ? 0 : 200);
+  }
+  if (aviso && aceptar && rechazar) {
+    var elegido = leer();
+    if (elegido !== "aceptadas" && elegido !== "rechazadas") { mostrarAviso(); }
+    aceptar.addEventListener("click", function () { guardar("aceptadas"); ocultarAviso(); });
+    rechazar.addEventListener("click", function () { guardar("rechazadas"); ocultarAviso(); });
+    if (reabrir) {
+      reabrir.hidden = false;
+      reabrir.addEventListener("click", mostrarAviso);
+    }
+  }
+
+  /* Formulario de contacto: validación y apertura del cliente de correo */
+  var form = document.getElementById("formulario-contacto");
+  if (form) {
+    var campos = {
+      nombre: document.getElementById("campo-nombre"),
+      correo: document.getElementById("campo-correo"),
+      mensaje: document.getElementById("campo-mensaje")
+    };
+    var estado = document.getElementById("estado-envio");
+    var patronCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    var reglas = {
+      nombre: function (v) { return v.length >= 2 ? "" : "Escriba su nombre (al menos dos caracteres)."; },
+      correo: function (v) { return patronCorreo.test(v) ? "" : "Escriba un correo electrónico válido."; },
+      mensaje: function (v) { return v.length >= 10 ? "" : "Escriba un mensaje de al menos diez caracteres."; }
+    };
+    form.setAttribute("novalidate", "novalidate");
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var primero = null;
+      var valores = {};
+      for (var clave in campos) {
+        if (!Object.prototype.hasOwnProperty.call(campos, clave) || !campos[clave]) { continue; }
+        var valor = campos[clave].value.trim();
+        valores[clave] = valor;
+        var error = reglas[clave](valor);
+        var salida = document.getElementById("error-" + clave);
+        if (salida) { salida.textContent = error ? "Error: " + error : ""; }
+        campos[clave].setAttribute("aria-invalid", error ? "true" : "false");
+        if (error && !primero) { primero = campos[clave]; }
+      }
+      if (primero) {
+        if (estado) { estado.textContent = "Revise los campos señalados."; }
+        primero.focus();
+        return;
+      }
+      var asunto = "Consulta desde filmax.blog";
+      var cuerpo = "Nombre: " + valores.nombre + "\nCorreo: " + valores.correo + "\n\n" + valores.mensaje;
+      if (estado) { estado.textContent = "Se abrirá su programa de correo con el mensaje preparado."; }
+      window.location.href = "mailto:soporte@filmax.blog?subject=" +
+        encodeURIComponent(asunto) + "&body=" + encodeURIComponent(cuerpo);
+    });
+  }
+}());
+
+</script>
+</body>
+</html>
